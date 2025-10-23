@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-A">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrossel de Features</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+    <style>
+        /* Estilos Globais */
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Urbanist", Helvetica, Arial, sans-serif;
+    background-color: #050a1f; /* Fundo bem escuro, similar ao vídeo */
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+}
+
+/* Seção principal do carrossel */
+.features-section {
+    width: 100%;
+    padding: 60px 0;
+    overflow: hidden; /* Garante que nada vaze para os lados */
+    position: relative;
+}
+
+/* O "Wrapper" define a área visível do carrossel */
+.carousel-wrapper {
+    position: relative;
+    width: 100%;
+    max-width: 1200px; /* Largura máxima do conteúdo */
+    margin: 0 auto;
+    
+    /* Isso é um truque: 
+      O wrapper não esconde o overflow, permitindo que os slides
+      vazem para os lados. A section (pai) é quem esconde.
+    */
+    overflow: visible; 
+}
+
+/* O "Container" é o trilho que segura e move todos os slides */
+.carousel-container {
+    display: flex; /* Alinha os slides lado a lado */
+    
+    /* Transição suave ao mover o container */
+    transition: transform 0.6s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+/* Estilo de cada "Slide" (cartão) */
+.carousel-slide {
+    /* Define o tamanho de cada slide. 
+      'flex-basis: 70%' significa que o slide ocupará 70% da largura do wrapper.
+      Isso deixa 30% de espaço, que (dividido) permite ver 15% dos slides laterais.
+    */
+    flex: 0 0 70%;
+    margin: 0 15px; /* Espaçamento entre os slides */
+    
+    /* Layout interno do cartão (texto e imagem) */
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+    
+    background-color: #0a2a6b; /* Azul escuro do cartão */
+    color: white;
+    padding: 2.5rem;
+    border-radius: 16px;
+    
+    /* Transições para o efeito de "foco" (ativo/inativo).
+      Os slides inativos ficarão levemente opacos e menores.
+    */
+    transition: opacity 0.5s ease, transform 0.5s ease;
+    opacity: 0.4;
+    transform: scale(0.9);
+}
+
+/* Estilo do SLIDE ATIVO (o que está no centro) */
+.carousel-slide.active {
+    opacity: 1;
+    transform: scale(1);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.slide-content {
+    flex: 1; /* Ocupa metade do espaço */
+}
+
+.slide-content h2 {
+    font-size: 2.5rem; /* 40px */
+    margin-top: 0;
+    margin-bottom: 1rem;
+}
+
+.slide-content p {
+    font-size: 1.1rem; /* 18px */
+    line-height: 1.6;
+    opacity: 0.9;
+}
+
+.slide-image {
+    flex: 1; /* Ocupa a outra metade */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.slide-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+/* Paginação (pontinhos) */
+.carousel-pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2rem;
+}
+
+.pagination-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: #4a5a8a; /* Cor do ponto inativo */
+    margin: 0 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.pagination-dot.active {
+    background-color: #ffffff; /* Cor do ponto ativo */
+}
+
+/* Ajustes para telas menores (Responsividade) */
+@media (max-width: 900px) {
+    .carousel-slide {
+        flex-direction: column; /* Empilha texto e imagem */
+        flex-basis: 80%; /* Ocupa mais espaço na tela */
+        text-align: center;
+    }
+
+    .slide-content h2 {
+        font-size: 2rem;
+    }
+
+    .slide-content p {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 600px) {
+    .carousel-slide {
+        flex-basis: 90%; /* Quase a tela inteira */
+        padding: 1.5rem;
+    }
+}
+    </style>
+</head>
+<body>
+
+    <section class="features-section">
+        <div class="carousel-wrapper">
+            <div class="carousel-container">
+                
+                <div class="carousel-slide">
+                    <div class="slide-content">
+                        <h2>Tenha orientação personalizada</h2>
+                        <p>Nossa equipe de Sucesso do Aluno te acompanha de perto com mentorias, revisão de currículo, preparação para entrevistas e acesso a vagas exclusivas dos nossos parceiros.</p>
+                    </div>
+                    <div class="slide-image">
+                        <img src="https://via.placeholder.com/300x200/EEEEEE/0A2A6B?text=Mentoria" alt="Orientação Personalizada">
+                    </div>
+                </div>
+
+                <div class="carousel-slide">
+                    <div class="slide-content">
+                        <h2>Resolva desafios reais</h2>
+                        <p>Aqui, você é avaliado por entregas, trabalha em projetos de empresas parceiras e sai com experiência no currículo, pronto para encarar qualquer desafio profissional.</p>
+                    </div>
+                    <div class="slide-image">
+                        <img src="https://via.placeholder.com/300x200/EEEEEE/0A2A6B?text=Projetos" alt="Desafios Reais">
+                    </div>
+                </div>
+
+                <div class="carousel-slide">
+                    <div class="slide-content">
+                        <h2>Aprenda com especialistas</h2>
+                        <p>Tenha acesso a aulas gravadas para estudar no seu ritmo e encontros ao vivo para aprofundar o aprendizado, trocar experiências e tirar dúvidas direto com quem está no mercado.</p>
+                    </div>
+                    <div class="slide-image">
+                        <img src="https://via.placeholder.com/300x200/EEEEEE/0A2A6B?text=Aulas+ao+Vivo" alt="Aprenda com Especialistas">
+                    </div>
+                </div>
+
+                <div class="carousel-slide">
+                    <div class="slide-content">
+                        <h2>Networking de alto nível</h2>
+                        <p>Conecte-se com profissionais de todo o Brasil, participe de comunidades exclusivas e amplie sua rede de contatos para impulsionar sua carreira.</p>
+                    </div>
+                    <div class="slide-image">
+                        <img src="https://via.placeholder.com/300x200/EEEEEE/0A2A6B?text=Networking" alt="Networking">
+                    </div>
+                </div>
+
+                <div class="carousel-slide">
+                    <div class="slide-content">
+                        <h2>Certificado reconhecido</h2>
+                        <p>Receba um certificado de conclusão ao final do curso, validando suas novas habilidades e aumentando sua credibilidade no mercado de trabalho.</p>
+                    </div>
+                    <div class="slide-image">
+                        <img src="https://via.placeholder.com/300x200/EEEEEE/0A2A6B?text=Certificado" alt="Certificado">
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        
+        <div class="carousel-pagination">
+            </div>
+    </section>
+
+    <script src="assets/src/js/test.js""></script>
+</body>
+</html>

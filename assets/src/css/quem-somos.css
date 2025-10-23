@@ -1,0 +1,298 @@
+/* Reset e Configurações Globais (Pode estar no seu style.css) */
+:root {
+    --cor-primaria: #ffc400;
+    --cor-secundaria: #333;
+    --cor-texto: #fff;
+    --cor-fundo: #fff;
+    --cor-cinza-claro: #f4f4f4;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Urbanist', sans-serif;
+    background-color: var(--cor-fundo);
+    color: var(--cor-secundaria);
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+ul {
+    list-style: none;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+/* Animações (Pode estar no seu style.css) */
+.animate-on-scroll {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.animate-on-scroll.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Header (Pode estar no seu style.css) */
+.header {
+    background-color: rgba(0, 0, 0, 0.8);
+    color: var(--cor-texto);
+    padding: 20px 0;
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+}
+
+.header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+.header nav ul {
+    display: flex;
+    gap: 20px;
+}
+
+.header nav a {
+    padding: 5px 10px;
+    transition: color 0.3s;
+}
+
+.header nav a:hover {
+    color: var(--cor-primaria);
+}
+
+/* Hero Section */
+.hero-quem-somos {
+    background-image: url('../img/hero-quem-somos.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 400px;
+    margin-top: 80px; /* Ajuste para o header fixo */
+}
+
+/* Intro Section */
+.intro-quem-somos {
+    padding: 80px 0;
+}
+
+.intro-quem-somos .container {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 60px;
+    align-items: start;
+}
+
+.intro-quem-somos h2 {
+    font-size: 2.5rem;
+    font-weight: 600;
+    line-height: 1.3;
+}
+
+.intro-quem-somos .intro-text-right p {
+    font-size: 0.95rem;
+    color: #555;
+}
+
+.intro-quem-somos .intro-text-right p:first-child {
+    margin-bottom: 20px;
+}
+
+/* Timeline Section */
+.timeline-section {
+    padding: 80px 0;
+    background-color: var(--cor-cinza-claro);
+}
+
+.timeline-tabs ul {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    border-bottom: 2px solid #ddd;
+}
+
+.timeline-tabs .tab-link {
+    padding: 10px 15px;
+    font-weight: 600;
+    color: #888;
+    background-color: transparent;
+    border-bottom: 3px solid transparent;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.timeline-tabs .tab-link.active {
+    color: var(--cor-secundaria);
+    border-bottom-color: var(--cor-primaria);
+}
+
+.timeline-content {
+    padding: 40px 0;
+    min-height: 100px; /* Garante altura mínima */
+}
+
+.timeline-content .tab-pane {
+    display: none;
+    animation: fadeIn 0.5s ease;
+}
+
+.timeline-content .tab-pane.active {
+    display: block;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* Gallery Section */
+.gallery-quem-somos {
+    padding: 80px 0;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+/* Footer (Estilo da segunda imagem) */
+.footer {
+    background-color: var(--cor-primaria);
+    padding: 60px 0 20px;
+    color: var(--cor-secundaria);
+}
+
+.footer .footer-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 30px;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: 1.2fr 1.2fr 1fr;
+    gap: 30px;
+    margin-bottom: 40px;
+}
+
+.footer-column .info-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.footer-column .icon-box {
+    width: 40px;
+    height: 40px;
+    background-color: var(--cor-secundaria);
+    color: var(--cor-texto);
+    display: grid;
+    place-items: center;
+    font-weight: 700;
+    font-size: 1.2rem;
+    flex-shrink: 0;
+}
+
+.footer-column p {
+    font-size: 0.9rem;
+    line-height: 1.4;
+}
+
+.trabalhe-conosco-box {
+    border: 1px solid var(--cor-secundaria);
+    padding: 15px 20px;
+    display: inline-block;
+}
+
+.footer-bottom {
+    border-top: 1px solid rgba(0,0,0,0.1);
+    padding-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.9rem;
+}
+
+/* Responsividade */
+@media (max-width: 992px) {
+    .intro-quem-somos .container {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .footer-content {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-quem-somos {
+        height: 300px;
+    }
+
+    .intro-quem-somos h2 {
+        font-size: 2rem;
+    }
+    
+    .timeline-tabs ul {
+        flex-direction: column;
+        border-bottom: none;
+    }
+
+    .timeline-tabs .tab-link {
+        border-bottom: 1px solid #ddd;
+        text-align: center;
+    }
+    
+    .timeline-tabs .tab-link.active {
+        border-bottom-color: var(--cor-primaria);
+    }
+    
+    .gallery-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .footer-content {
+        grid-template-columns: 1fr;
+    }
+    
+    .footer-bottom {
+        flex-direction: column-reverse;
+        gap: 15px;
+        text-align: center;
+    }
+}

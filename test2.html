@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rodapé FIVE (Contato Simples)</title>
+    <link rel="stylesheet" href="style-footer-simples.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+    
+
+    <style>
+        /* RESET E CORES */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Urbanist', Arial, sans-serif;
+}
+
+:root {
+    --cor-amarelo: #ffcc00;
+    --cor-preto: #000000;
+    --cor-branco: #ffffff;
+}
+
+body {
+    background-color: var(--cor-amarelo); /* O fundo da imagem é todo amarelo */
+}
+
+.container {
+    width: 90%;
+    max-width: 1000px; /* Ajustado para um layout mais estreito, como na imagem */
+    margin: 0 auto;
+    padding: 40px 0;
+}
+
+/* -------------------------------------- */
+/* RODAPÉ PRINCIPAL */
+/* -------------------------------------- */
+.rodape-simples {
+    background-color: var(--cor-amarelo);
+    color: var(--cor-preto);
+    padding: 40px 0 0;
+    text-align: center; /* Centraliza tudo por padrão */
+}
+
+.rodape-titulo {
+    font-size: 1.5em;
+    font-weight: 700;
+    margin-bottom: 50px;
+    text-align: left; /* Título volta a ser alinhado à esquerda */
+}
+
+/* Estrutura de Contato (Whatsapp/Instagram/Email/Endereço) */
+.bloco-contato-principal {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 60px;
+}
+
+.coluna-contato {
+    width: 48%; /* Duas colunas quase iguais */
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.item-contato {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: left;
+}
+
+.info-texto h4 {
+    font-size: 1em;
+    font-weight: 700;
+    margin-bottom: 5px;
+}
+
+.link-info {
+    color: var(--cor-preto);
+    text-decoration: none;
+    font-size: 0.9em;
+    display: block;
+    line-height: 1.3;
+}
+
+.endereco-texto {
+    white-space: pre-line; /* Permite quebras de linha no HTML/CSS */
+}
+
+/* Ícones de Ação (Caixas Pretas) */
+.icone-link {
+    background-color: var(--cor-preto);
+    width: 40px;
+    height: 40px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0; /* Evita que o ícone diminua */
+    margin-left: 20px;
+}
+
+.icone-contato {
+    fill: var(--cor-amarelo);
+    width: 24px;
+    height: 24px;
+}
+
+/* -------------------------------------- */
+/* BOTÕES */
+/* -------------------------------------- */
+.bloco-botoes {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 600px; /* Limita a largura dos botões, como na imagem */
+    margin: 0 auto 50px;
+    padding: 5px;
+    border: 2px solid var(--cor-preto); /* Borda em todo o bloco, como na imagem */
+    border-radius: 5px;
+}
+
+.btn-trabalhe, .btn-solicite {
+    flex: 1; /* Ocupam a mesma largura */
+    text-align: center;
+    padding: 15px 0;
+    font-weight: 700;
+    font-size: 1em;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+    border-radius: 3px;
+}
+
+.btn-trabalhe {
+    background-color: transparent; /* Fundo transparente */
+    color: var(--cor-preto);
+}
+
+.btn-solicite {
+    background-color: var(--cor-preto);
+    color: var(--cor-amarelo);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 15px 10px;
+}
+
+/* Ícone de Seta (Girar no botão "Solicite sua vaga") */
+.seta-icone {
+    width: 15px;
+    height: 15px;
+    margin-left: 10px;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="%23ffcc00" d="M12 4V1L8 5l4 4V6c3.31 0 6 2.69 6 6s-2.69 6-6 6-6-2.69-6-6H4c0 4.42 3.58 8 8 8s8-3.58 8-8-3.58-8-8-8z"/></svg>');
+    background-size: cover;
+    transform: rotate(-90deg); /* Gira a seta de recarregar para parecer uma seta circular */
+}
+
+/* -------------------------------------- */
+/* RODAPÉ INFERIOR (COPYRIGHT E LOGO) */
+/* -------------------------------------- */
+.rodape-inferior {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 0 30px;
+    border-top: 1px solid rgba(0, 0, 0, 0.1); /* Linha divisória sutil */
+}
+
+.copyright-texto {
+    font-size: 0.8em;
+}
+
+.logo-rodape {
+    width: 150px; /* Ajuste o tamanho da logo */
+    height: auto;
+}
+
+/* -------------------------------------- */
+/* MEDIA QUERIES (Responsividade) */
+/* -------------------------------------- */
+@media (max-width: 600px) {
+    .bloco-contato-principal {
+        flex-direction: column;
+    }
+
+    .coluna-contato {
+        width: 100%;
+        margin-bottom: 30px;
+    }
+    
+    .bloco-botoes {
+        flex-direction: column;
+        border: none; /* Remove a borda única em mobile */
+        max-width: 100%;
+    }
+    
+    .btn-trabalhe, .btn-solicite {
+        width: 100%;
+        margin: 5px 0;
+        border: 2px solid var(--cor-preto); /* Adiciona bordas individuais */
+        border-radius: 5px;
+    }
+
+    .rodape-inferior {
+        flex-direction: column;
+        gap: 15px;
+    }
+}
+    </style>
+</head>
+<body>
+
+    <footer class="rodape-simples">
+        <div class="container">
+            <h3 class="rodape-titulo">Contato | Rede social | Local</h3>
+            
+            <div class="bloco-contato-principal">
+                
+                <div class="coluna-contato coluna-esquerda">
+                    
+                    <div class="item-contato">
+                        <div class="info-texto">
+                            <h4>Whatsapp</h4>
+                            <a href="https://wa.me/5586999200164" target="_blank" class="link-info">(86) 9 9920-0164</a>
+                        </div>
+                        <a href="https://wa.me/5589994127613" target="_blank" class="icone-link">
+                            <svg class="icone-contato" viewBox="0 0 24 24"><path fill="#000" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1.88 15.3l-.97-.56c-1.3-.75-2.92-1.84-4.22-3.14-.5-.5-.87-1.12-1.04-1.83l.86-.33c.31-.12.42-.48.24-.78l-.75-1.3c-.15-.26-.45-.34-.73-.18L7 10.5c-.32.18-.36.63-.1.97.4 2.1 1.63 3.9 3.32 5.56 1.69 1.66 3.4 2.87 5.5 3.27.3.06.6-.08.75-.38l.4-1.1c.17-.3-.02-.63-.33-.78l-1.3-.64c-.28-.14-.62-.05-.75.25z"/></svg>
+                        </a>
+                    </div>
+                    
+                    <div class="item-contato">
+                        <div class="info-texto">
+                            <h4>Instagram</h4>
+                            <a href="https://www.instagram.com/fiveenergia/" target="_blank" class="link-info">@fiveenergia</a>
+                        </div>
+                        <a href="https://instagram.com/fiveenergiasolar" target="_blank" class="icone-link">
+                            <svg class="icone-contato" viewBox="0 0 24 24"><path fill="#000" d="M7.8 2h8.4C17.6 2 20 4.4 20 7.8v8.4C20 19.6 17.6 22 14.2 22H7.8C4.4 22 2 19.6 2 16.2V7.8C2 4.4 4.4 2 7.8 2zm-.2 2A1.8 1.8 0 0 0 4 5.8v8.4A1.8 1.8 0 0 0 5.8 16h8.4a1.8 1.8 0 0 0 1.8-1.8V5.8A1.8 1.8 0 0 0 14.2 4H7.6zm8.8 1.8c-.8 0-1.4.6-1.4 1.4s.6 1.4 1.4 1.4 1.4-.6 1.4-1.4-.6-1.4-1.4-1.4zM10 9c-2.8 0-5 2.2-5 5s2.2 5 5 5 5-2.2 5-5-2.2-5-5-5zm0 2c1.7 0 3 1.3 3 3s-1.3 3-3 3-3-1.3-3-3 1.3-3 3-3z"/></svg>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="coluna-contato coluna-direita">
+                    <div class="item-contato">
+                        <div class="info-texto">
+                            <h4>Email</h4>
+                            <a href="mailto:contatofiveenergia@gmail.com" class="link-info">contatofiveenergia@gmail.com</a>
+                        </div>
+                        <a href="mailto:contatofiveenergia@gmail.com" class="icone-link">
+                            <svg class="icone-contato" viewBox="0 0 24 24"><path fill="#000" d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+                        </a>
+                    </div>
+
+                    <div class="item-contato">
+                        <div class="info-texto">
+                            <h4>Endereço</h4>
+                            <a href="https://maps.app.goo.gl/4TRDa4cffZYdzemF9" target="_blank" class="link-info endereco-texto">
+                                Rua Maria de Araujo, 2872<br>
+                                Santo Antônio, CEP - 64.028-205
+                            </a>
+                        </div>
+                        <a href="assets/src/icons/location.svg" target="_blank" class="icone-link"></a>
+                    </div>
+                </div>
+                
+            </div>
+
+            <div class="bloco-botoes">
+                <a href="contatofiveenergia@gmail.com" class="btn-trabalhe">Trabalhe Conosco</a>
+                <a href="contatofiveenergia@gmail.com" class="btn-solicite">Solicite sua vaga <span class="seta-icone"></span></a>
+            </div>
+
+            <div class="rodape-inferior">
+                <p class="copyright-texto">©Todos os direitos reservados five energia solar. 2025</p>
+                <img src="assets/src/img/logo-preta.svg" alt="FIVE ENERGIA Logo" class="logo-rodape">
+            </div>
+            
+        </div>
+    </footer>
+
+</body>
+</html>

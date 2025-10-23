@@ -1,0 +1,331 @@
+/* Variáveis Globais (pode estar no seu style.css) */
+:root {
+    --cor-primaria: #ffc400;
+    --cor-fundo-escuro: #1a1a1a;
+    --cor-fundo-claro: #f2f2f2;
+    --cor-texto: #fff;
+    --cor-texto-escuro: #333;
+}
+
+/* Reset Básico (pode estar no seu style.css) */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Urbanist', sans-serif;
+    /* Fundo escuro como base para esta página */
+    background-color: var(--cor-fundo-escuro); 
+    color: var(--cor-texto);
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+/* Animações (pode estar no seu style.css) */
+.animate-on-scroll {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.animate-on-scroll.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Header (pode estar no seu style.css) */
+.header {
+    background-color: rgba(0, 0, 0, 0.8);
+    color: var(--cor-texto);
+    padding: 20px 0;
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+}
+
+.header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--cor-texto);
+    text-decoration: none;
+}
+
+.header nav ul {
+    display: flex;
+    gap: 20px;
+    list-style: none;
+}
+
+.header nav a {
+    padding: 5px 10px;
+    transition: color 0.3s;
+    color: var(--cor-texto);
+    text-decoration: none;
+}
+
+.header nav a:hover {
+    color: var(--cor-primaria);
+}
+
+/* --- Estilos Específicos da Página "Soluções" --- */
+
+.main-solucoes {
+    padding-top: 80px; /* Espaço para o header fixo */
+}
+
+/* Seção Intro */
+.solucoes-intro {
+    padding: 80px 0 60px;
+}
+
+.solucoes-intro h2 {
+    font-size: 2.8rem;
+    font-weight: 600;
+    max-width: 600px;
+}
+
+/* Seção Lista de Soluções */
+.solucoes-lista {
+    background-color: var(--cor-fundo-claro);
+    color: var(--cor-texto-escuro);
+    /* A mágica da borda curvada */
+    border-bottom-left-radius: 80px;
+    border-bottom-right-radius: 80px;
+    padding: 40px 0 60px;
+    overflow: hidden;
+}
+
+.solucao-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+    padding: 40px 0;
+    border-bottom: 1px solid #ddd;
+}
+
+.solucao-item:last-child {
+    border-bottom: none;
+}
+
+.solucao-texto {
+    flex: 1;
+}
+
+.solucao-texto h3 {
+    font-size: 2rem;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+.solucao-texto p {
+    font-size: 0.95rem;
+    color: #555;
+    max-width: 400px;
+}
+
+.solucao-imagem {
+    flex: 1;
+}
+
+.solucao-imagem img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+/* Seção CTA WhatsApp */
+.cta-whatsapp {
+    padding: 100px 0;
+}
+
+.cta-whatsapp .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 60px;
+}
+
+.cta-texto {
+    flex: 1.5;
+}
+
+.cta-texto p {
+    font-size: 1.6rem;
+    font-weight: 500;
+    line-height: 1.4;
+    margin-bottom: 30px;
+}
+
+.btn-whatsapp {
+    display: inline-block;
+    background-color: var(--cor-primaria);
+    color: var(--cor-texto-escuro);
+    padding: 15px 35px;
+    border-radius: 30px;
+    font-weight: 600;
+    font-size: 1rem;
+    text-decoration: none;
+    transition: background-color 0.3s;
+}
+
+.btn-whatsapp:hover {
+    background-color: #ffd84d;
+}
+
+.cta-imagens {
+    flex: 1;
+    position: relative;
+    min-height: 250px;
+    max-width: 400px;
+}
+
+.cta-imagens img {
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+    border: 5px solid var(--cor-primaria);
+    object-fit: cover;
+    position: absolute;
+}
+
+.cta-imagens .img-1 {
+    top: 0;
+    left: 20%;
+}
+.cta-imagens .img-2 {
+    top: 50%;
+    left: 50%;
+    transform: translateY(-50%);
+    z-index: 2;
+}
+.cta-imagens .img-3 {
+    bottom: 0;
+    left: 10%;
+}
+
+/* Footer (Estilo da primeira imagem - amarelo) */
+.footer {
+    background-color: var(--cor-primaria);
+    padding: 60px 0 20px;
+    color: var(--cor-texto-escuro);
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 30px;
+    margin-bottom: 40px;
+}
+
+.footer h3 {
+    margin-bottom: 15px;
+    font-size: 1.2rem;
+}
+
+.info-item {
+    margin-bottom: 10px;
+}
+
+.info-item span {
+    font-weight: 600;
+}
+
+.trabalhe-conosco .btn {
+    display: inline-block;
+    background-color: var(--cor-texto-escuro);
+    color: var(--cor-texto);
+    padding: 12px 25px;
+    border-radius: 5px;
+    font-weight: 600;
+    transition: background-color 0.3s;
+    text-decoration: none;
+}
+
+.trabalhe-conosco .btn:hover {
+    background-color: #555;
+}
+
+.footer-bottom {
+    border-top: 1px solid rgba(0,0,0,0.1);
+    padding-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.footer-bottom .logo {
+    color: var(--cor-texto-escuro);
+}
+
+/* Responsividade */
+@media (max-width: 992px) {
+    .solucao-item {
+        /* Inverte a ordem no mobile: imagem primeiro */
+        flex-direction: column-reverse; 
+    }
+    
+    .solucao-imagem img {
+        height: 200px;
+    }
+    
+    .cta-whatsapp .container {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .cta-imagens {
+        min-height: 150px;
+        margin-top: 40px;
+    }
+    
+    .cta-imagens img {
+        width: 100px;
+        height: 100px;
+    }
+}
+
+@media (max-width: 768px) {
+    .solucoes-intro h2 {
+        font-size: 2.2rem;
+    }
+    
+    .solucoes-lista {
+        border-bottom-left-radius: 40px;
+        border-bottom-right-radius: 40px;
+    }
+    
+    .solucao-texto h3 {
+        font-size: 1.8rem;
+    }
+    
+    .cta-texto p {
+        font-size: 1.3rem;
+    }
+    
+    .footer-content,
+    .footer-bottom {
+        flex-direction: column;
+        text-align: center;
+    }
+}
