@@ -1,467 +1,390 @@
-/* RESET E ESTILOS GERAIS */
+/* Variáveis Globais (pode estar no seu style.css) */
+:root {
+    --cor-primaria: #ffc400;
+    --cor-fundo-escuro: #1a1a1a;
+    --cor-texto: #fff;
+    --cor-texto-escuro: #333;
+    --cor-fundo-claro: #f2f2f2;
+}
+
+/* Reset Básico (pode estar no seu style.css) */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Urbanist', sans-serif; /* Fonte base */
-}
-
-:root {
-    --cor-amarelo: #ffcc00; /* Cor predominante da FIVE */
-    --cor-preto: #1a1a1a;
-    --cor-branco: #ffffff;
-    --cor-cinza-texto: #555555;
 }
 
 body {
-    background-color: var(--cor-branco);
-    color: var(--cor-preto);
+    font-family: 'Urbanist', sans-serif;
+    background-color: var(--cor-fundo-escuro); /* Fundo base da página */
+    color: var(--cor-texto);
+    line-height: 1.6;
 }
 
 .container {
-    width: 90%;
-    max-width: 1200px;
+    max-width: 1100px;
     margin: 0 auto;
+    padding: 0 20px;
 }
 
-/* -------------------------------------- */
-/* ESTILOS DO CABEÇALHO (Header) */
-/* -------------------------------------- */
+img {
+    max-width: 100%;
+    display: block;
+}
+
+/* Animações (pode estar no seu style.css) */
+.animate-on-scroll {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.animate-on-scroll.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Header (pode estar no seu style.css) */
 .header {
-    background-color: rgba(0, 0, 0, 0.8); /* Fundo semi-transparente para o topo */
+    background-color: rgba(0, 0, 0, 0.8);
+    color: var(--cor-texto);
+    padding: 20px 0;
     position: fixed;
     width: 100%;
     z-index: 1000;
 }
 
-.header-content {
+.header .container {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 15px 0;
 }
 
 .logo {
-    width: 80px; /* Ajuste conforme o logo real */
-}
-
-.nav ul {
-    list-style: none;
-    display: flex;
-}
-
-.nav ul li a {
-    color: var(--cor-branco);
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--cor-texto);
     text-decoration: none;
-    padding: 10px 15px;
-    font-size: 14px;
-    font-weight: 500;
-    transition: color 0.3s;
 }
 
-.nav ul li a:hover,
-.nav ul li a.active {
-    color: var(--cor-amarelo);
-}
-
-/* -------------------------------------- */
-/* SEÇÃO 1: OPERAÇÃO E MANUTENÇÃO (Banner) */
-/* -------------------------------------- */
-
-/* SEÇÃO 1: OPERAÇÃO E MANUTENÇÃO (Banner) */
-/* -------------------------------------- */
-.operacao-manutencao-banner {
-    background: url('fundo-operacao.jpg') no-repeat center center/cover;
-    height: 100vh;
+.header nav ul {
     display: flex;
-    /* Adiciona o alinhamento central ao container na tela */
-    justify-content: center; 
-    align-items: center;
-    padding-top: 80px; 
+    gap: 20px;
+    list-style: none;
+}
+
+.header nav a {
+    padding: 5px 10px;
+    transition: color 0.3s;
+    color: var(--cor-texto);
+    text-decoration: none;
+}
+
+.header nav a:hover {
+    color: var(--cor-primaria);
+}
+
+/* --- Estilos Específicos da Página --- */
+
+/* Hero Section */
+.hero-operacao {
+    background-image: url('../img/hero-operacao.jpg');
+    background-size: cover;
+    background-position: center;
+    padding: 140px 0 80px;
     position: relative;
-    text-align: left; /* Garante que os títulos permaneçam alinhados à esquerda dentro do container */
+    text-align: center;
 }
 
-/* Garante que o container interno, onde o texto e as fases estão,
-   fique sempre centralizado na seção */
-.operacao-manutencao-banner .container {
-    margin: 0 auto;
-    width: 90%;
-    max-width: 1200px;
+.hero-operacao::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 1;
 }
 
-/* NOVO: Centraliza o bloco de 7 fases para que fique visualmente equilibrado */
-.processo-fases {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 15px;
-    max-width: 700px; /* Mantém a largura máxima original */
-    margin: 30px auto 0; /* AQUI ESTÁ A CHAVE: Centraliza o bloco de fases */
-}
-
-/* O resto do CSS da seção 1 permanece o mesmo. */
-
-
-
-.content-overlay {
+.hero-content, .hero-operacao .container {
     position: relative;
     z-index: 2;
-    color: var(--cor-branco);
 }
 
-.titulo-principal {
-    font-size: 3.5em;
-    font-weight: 900;
-    line-height: 1.1;
+.hero-content h1 {
+    font-size: 2.8rem;
+    font-weight: 600;
     margin-bottom: 10px;
 }
 
-.subtitulo-principal {
-    font-size: 1.2em;
-    font-weight: 400;
+.hero-content p {
+    font-size: 1.2rem;
     margin-bottom: 40px;
 }
 
-/* Processo de 7 Fases */
-.processo-fases {
+/* Grid de Processo */
+.processo-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr); /* 2 colunas */
-    gap: 15px;
-    max-width: 700px;
-    margin-top: 30px;
-}
-
-.fase {
-    background-color: var(--cor-amarelo);
-    color: var(--cor-preto);
-    padding: 15px 25px;
-    border-radius: 8px;
-    display: flex;
-    align-items: center;
-    font-weight: 700;
-    cursor: default;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-    transition: transform 0.3s;
-}
-
-.fase:hover {
-    transform: scale(1.05);
-}
-
-.fase .numero {
-    font-size: 1.8em;
-    font-weight: 900;
-    margin-right: 15px;
-}
-
-.fase .icone img {
-    width: 30px;
-    height: 30px;
-    margin-right: 15px;
-}
-
-.fase .texto {
-    line-height: 1.2;
-    font-size: 0.95em;
-}
-
-/* Ajuste específico para a fase 7 (centralizada) */
-.fase-7 {
-    grid-column: 1 / span 2; /* Ocupa as duas colunas */
-    justify-content: center;
-    max-width: 300px;
-    margin: 15px auto 0;
-}
-
-/* -------------------------------------- */
-/* SEÇÃO 2: EQUIPE ALTAMENTE QUALIFICADA */
-/* -------------------------------------- */
-.equipe-qualificada {
-    background-color: var(--cor-preto);
-    padding: 80px 0;
-    color: var(--cor-branco);
-}
-
-.equipe-content {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 40px;
-}
-
-.texto-equipe {
-    flex: 1;
-    max-width: 45%;
-    padding-left: 20px;
-    border-left: 5px solid var(--cor-amarelo);
-}
-
-.texto-equipe h2 {
-    font-size: 2.5em;
-    font-weight: 900;
-    line-height: 1.1;
-    color: var(--cor-amarelo);
-    margin-bottom: 20px;
-}
-
-.texto-equipe p {
-    font-size: 1em;
-    line-height: 1.5;
-}
-
-.fotos-equipe {
-    flex: 1;
-    display: flex;
+    grid-template-columns: repeat(2, 1fr);
     gap: 20px;
-    max-width: 50%;
 }
 
-.foto-membro {
-    background-color: #333; /* Cor de placeholder */
+.processo-item {
+    background-color: var(--cor-primaria);
+    color: var(--cor-texto-escuro);
+    border-radius: 15px;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.processo-item span {
+    font-size: 2.5rem;
+    font-weight: 700;
+}
+
+.processo-item img {
+    width: 45px;
+    height: 45px;
+    /* Você pode precisar de ícones em SVG ou PNG */
+}
+
+.processo-item h4 {
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+/* Centraliza o último item */
+.processo-item.item-7 {
+    grid-column: 1 / -1;
+    justify-self: center;
+    width: 50%;
+}
+
+/* Seção Equipe e Números */
+.equipe-numeros-wrapper {
+    background-color: var(--cor-fundo-escuro);
+    padding-top: 80px;
+    color: var(--cor-texto-escuro);
+}
+
+.equipe-box {
+    background-color: var(--cor-fundo-claro);
+    border-radius: 15px;
+    padding: 40px;
+    display: flex;
+    gap: 30px;
+    align-items: center;
+}
+
+.equipe-texto {
+    flex: 1;
+}
+
+.equipe-texto h2 {
+    font-size: 2.2rem;
+    margin-bottom: 15px;
+}
+
+.equipe-texto p {
+    font-size: 0.95rem;
+    color: #555;
+}
+
+.equipe-imagens {
+    flex: 1.2;
+    display: flex;
+    gap: 15px;
+}
+
+.equipe-imagens img {
     width: 33.33%;
-    height: 300px; /* Altura fixa para o placeholder */
-    border-radius: 8px;
-    background-size: cover;
-    background-position: center top;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
-}
-
-/* Placeholders de imagem (substituir por imagens reais no seu projeto) */
-.foto-membro-1 { background-image: url('membro1.jpg'); } 
-.foto-membro-2 { background-image: url('membro2.jpg'); }
-.foto-membro-3 { background-image: url('membro3.jpg'); }
-
-/* -------------------------------------- */
-/* SEÇÃO 3: FOCO E NÚMEROS */
-/* -------------------------------------- */
-.foco-numeros {
-    background-color: var(--cor-amarelo);
-    padding: 80px 0;
-    text-align: center;
+    border-radius: 10px;
+    object-fit: cover;
+    height: 200px;
 }
 
 .foco-texto {
-    font-size: 1.5em;
-    font-weight: 700;
-    margin-bottom: 50px;
-    color: var(--cor-preto);
+    color: var(--cor-texto);
+    text-align: center;
+    font-size: 1.25rem;
+    font-weight: 500;
+    max-width: 700px;
+    margin: 60px auto;
 }
 
-.numeros-destaque {
+/* Seção Números */
+.numeros-section {
+    background-image: url('../img/numeros-bg.jpg'); /* Imagem de painéis solares */
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed; /* Efeito Parallax */
+    padding: 80px 0;
+    position: relative;
+    color: var(--cor-primaria);
+}
+
+.numeros-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.75);
+    z-index: 1;
+}
+
+.numeros-section .container {
     display: flex;
     justify-content: space-around;
-    gap: 30px;
+    gap: 40px;
+    position: relative;
+    z-index: 2;
+    text-align: center;
 }
 
-.card-numero {
-    background-color: var(--cor-branco);
-    padding: 40px 30px;
-    border-radius: 15px;
-    flex: 1;
-    max-width: 45%;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+.numero-item img {
+    width: 60px;
+    height: 60px;
+    margin: 0 auto 15px;
+    /* Ícones amarelos (PNG ou SVG) */
 }
 
-.card-numero .icone-card {
-    font-size: 2em; /* Ícone de placeholder */
-    display: block;
-    margin-bottom: 10px;
-}
-
-.card-numero .icone-card img {
-    width: 40px;
-    height: 40px;
-}
-
-.card-numero .numero {
-    font-size: 4em;
-    font-weight: 900;
-    color: var(--cor-preto);
-    display: block;
-    margin-bottom: 15px;
-}
-
-.card-numero .descricao {
-    font-size: 1.1em;
-    font-weight: 500;
-    line-height: 1.4;
-    color: var(--cor-cinza-texto);
-}
-
-/* -------------------------------------- */
-/* SEÇÃO 4: RODAPÉ/CONTATO */
-/* -------------------------------------- */
-.rodape {
-    background-color: var(--cor-amarelo);
-    padding-top: 50px;
-    color: var(--cor-preto);
-}
-
-.contato-redes h3 {
-    font-size: 1.5em;
+.numero-item .numero {
+    font-size: 4rem;
     font-weight: 700;
-    margin-bottom: 30px;
-    border-bottom: 2px solid var(--cor-preto);
-    padding-bottom: 5px;
-    display: inline-block;
+    line-height: 1;
 }
 
-.contato-detalhes {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    flex-wrap: wrap;
+.numero-item .descricao {
+    font-size: 1.1rem;
+    color: var(--cor-texto);
+    max-width: 300px;
+}
+
+/* Footer (Estilo da segunda/quarta imagem) */
+.footer {
+    background-color: var(--cor-primaria);
+    padding: 60px 0 20px;
+    color: var(--cor-texto-escuro);
+}
+
+.footer .footer-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 30px;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: 1.2fr 1.2fr 1fr;
+    gap: 30px;
     margin-bottom: 40px;
 }
 
-.bloco-contato {
-    width: 28%; /* Ajuste a largura conforme necessário */
+.footer-column .info-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
     margin-bottom: 20px;
 }
 
-.bloco-contato h4 {
-    font-size: 1.1em;
+.footer-column .icon-box {
+    width: 40px;
+    height: 40px;
+    background-color: var(--cor-texto-escuro);
+    color: var(--cor-texto);
+    display: grid;
+    place-items: center;
     font-weight: 700;
+    font-size: 1.2rem;
+    flex-shrink: 0;
+}
+
+.footer-column p {
+    font-size: 0.9rem;
+    line-height: 1.4;
+}
+
+.trabalhe-conosco-box {
+    border: 1px solid var(--cor-texto-escuro);
+    padding: 15px 20px;
+}
+
+.trabalhe-conosco-box p {
     margin-bottom: 5px;
+    font-weight: 600;
 }
 
-.bloco-contato p {
-    font-size: 0.9em;
-    margin-bottom: 15px;
+.btn-footer {
+    color: var(--cor-texto-escuro);
+    font-weight: 600;
 }
 
-.bloco-icones {
-    width: 10%;
+.footer-bottom {
+    border-top: 1px solid rgba(0,0,0,0.1);
+    padding-top: 20px;
     display: flex;
-    flex-direction: column;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
-    height: 100px; /* Altura para alinhar com os textos */
+    font-size: 0.9rem;
 }
 
-.icone-contato {
-    width: 35px;
-    height: 35px;
-    background-color: var(--cor-preto);
-    border-radius: 50%;
-    padding: 5px;
-    transition: transform 0.3s;
-}
-
-.icone-contato:hover {
-    transform: scale(1.1);
-}
-
-.botoes-rodape {
-    display: flex;
-    justify-content: center;
-    gap: 30px;
-    margin-bottom: 50px;
-}
-
-.btn-trabalhe, .btn-solicite {
-    background-color: var(--cor-preto);
-    color: var(--cor-amarelo);
-    text-decoration: none;
-    padding: 15px 30px;
-    border-radius: 5px;
+.logo-footer {
+    font-size: 2rem;
     font-weight: 700;
-    font-size: 1em;
-    transition: background-color 0.3s, color 0.3s;
+    color: var(--cor-texto-escuro);
+    text-decoration: none;
 }
 
-.btn-solicite {
-    background-color: var(--cor-branco);
-    color: var(--cor-preto);
-    border: 2px solid var(--cor-preto);
-}
-
-.btn-trabalhe:hover {
-    background-color: var(--cor-cinza-texto);
-}
-
-.btn-solicite:hover {
-    background-color: var(--cor-preto);
-    color: var(--cor-amarelo);
-}
-
-.seta-icone {
-    margin-left: 5px;
-    font-weight: 900;
-}
-
-.copyright {
-    background-color: var(--cor-preto);
-    color: var(--cor-branco);
-    text-align: center;
-    padding: 15px 0;
-    font-size: 0.8em;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 20px;
-}
-
-.logo-rodape {
-    width: 60px; /* Logo da FIVE no canto direito, conforme a imagem */
-}
-
-/* -------------------------------------- */
-/* MEDIA QUERIES (Responsividade) */
-/* -------------------------------------- */
+/* Responsividade */
 @media (max-width: 992px) {
-    .titulo-principal {
-        font-size: 3em;
-    }
-    .equipe-content {
+    .equipe-box {
         flex-direction: column;
     }
-    .texto-equipe, .fotos-equipe {
-        max-width: 100%;
-    }
-    .fotos-equipe {
-        justify-content: center;
-    }
-    .bloco-contato {
-        width: 45%;
-    }
-    .bloco-icones {
-        width: 5%;
+    
+    .footer-content {
+        grid-template-columns: 1fr 1fr;
     }
 }
 
 @media (max-width: 768px) {
-    .processo-fases {
-        grid-template-columns: 1fr; /* Uma coluna em telas menores */
-        max-width: 400px;
-        margin: 30px auto 0;
+    .hero-content h1 {
+        font-size: 2.2rem;
     }
-    .fase-7 {
-        grid-column: 1 / span 1;
+
+    .processo-grid {
+        grid-template-columns: 1fr;
     }
-    .numeros-destaque {
-        flex-direction: column;
-        gap: 20px;
-    }
-    .card-numero {
-        max-width: 100%;
-    }
-    .foco-texto {
-        font-size: 1.3em;
-    }
-    .bloco-contato, .bloco-icones {
+    
+    .processo-item.item-7 {
         width: 100%;
-        text-align: center;
     }
-    .bloco-icones {
-        flex-direction: row;
-        gap: 20px;
-        height: auto;
-        margin-bottom: 20px;
-    }
-    .botoes-rodape {
+    
+    .equipe-imagens {
         flex-direction: column;
+        height: auto;
+    }
+    
+    .equipe-imagens img {
+        width: 100%;
+        height: auto;
+    }
+
+    .numeros-section .container {
+        flex-direction: column;
+    }
+    
+    .footer-content {
+        grid-template-columns: 1fr;
+    }
+    
+    .footer-bottom {
+        flex-direction: column-reverse;
         gap: 15px;
-        align-items: center;
+        text-align: center;
     }
 }
