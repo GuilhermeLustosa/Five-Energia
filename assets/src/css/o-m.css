@@ -265,63 +265,81 @@ img {
     max-width: 300px;
 }
 
-/* Footer (Estilo da segunda/quarta imagem) */
-.footer {
-    background-color: var(--cor-primaria);
-    padding: 60px 0 20px;
-    color: var(--cor-texto-escuro);
+/*Footer footer footer*/
+footer {
+  background-color: #f8c900; /* amarelo */
+  padding: 40px 60px 20px;
+  font-family: "Urbanist", sans-serif;
+  color: #000;
+  position: relative;
 }
 
-.footer .footer-title {
-    font-size: 1.1rem;
-    font-weight: 600;
-    margin-bottom: 30px;
+.footer .contato-titulo {
+    margin-bottom: 50px;
+    font-size:x-large ;
 }
 
-.footer-content {
-    display: grid;
-    grid-template-columns: 1.2fr 1.2fr 1fr;
-    gap: 30px;
-    margin-bottom: 40px;
+.footer-container {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 30px;
+  align-items: center;
 }
 
-.footer-column .info-item {
+.footer-left, .footer-right {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+}
+
+.footer-item {
+  position: relative;
+  padding-right: 60px; /* espaço pro ícone */
+}
+
+.footer-title {
+  font-weight: bold;
+  margin-bottom: 4px;
+}
+
+.footer-item p {
+  margin: 0;
+  font-size: 16px;
+  line-height: 1.4;
+}
+
+.trabalhe-conosco-area {
     display: flex;
-    align-items: center;
-    gap: 15px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 65px;
     margin-bottom: 20px;
 }
 
-.footer-column .icon-box {
-    width: 40px;
-    height: 40px;
-    background-color: var(--cor-texto-escuro);
-    color: var(--cor-texto);
-    display: grid;
-    place-items: center;
-    font-weight: 700;
-    font-size: 1.2rem;
-    flex-shrink: 0;
+.trabalhe-conosco-area #job {
+margin-left: auto;
+margin-right: auto;
+
 }
 
-.footer-column p {
-    font-size: 0.9rem;
-    line-height: 1.4;
+.trabalhe-conosco-area img {
+    width: 850px;
 }
 
-.trabalhe-conosco-box {
-    border: 1px solid var(--cor-texto-escuro);
-    padding: 15px 20px;
+.footer-icon {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  background: #222;
+  border-radius: 8px;
+  padding: 5px;
+  width: 50px;
+  height: 50px;
 }
 
-.trabalhe-conosco-box p {
-    margin-bottom: 5px;
-    font-weight: 600;
-}
-
-.btn-footer {
-    color: var(--cor-texto-escuro);
-    font-weight: 600;
+.info-item span {
+    font-weight: 500;
 }
 
 .footer-bottom {
@@ -329,16 +347,10 @@ img {
     padding-top: 20px;
     display: flex;
     justify-content: space-between;
+    margin-right: 50px;
     align-items: center;
-    font-size: 0.9rem;
 }
 
-.logo-footer {
-    font-size: 2rem;
-    font-weight: 700;
-    color: var(--cor-texto-escuro);
-    text-decoration: none;
-}
 
 /* Responsividade */
 @media (max-width: 992px) {
