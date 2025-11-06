@@ -89,11 +89,11 @@ img {
 
 /* Hero Section */
 .hero-quem-somos {
-    background-image: url('../img/hero-quem-somos.jpg');
+    background-image: url('../img/quem.svg');
     background-size: cover;
     background-position: center;
-    height: 400px;
-    margin-top: 80px; /* Ajuste para o header fixo */
+    height: 600px;
+    margin-top: 0px; /* Ajuste para o header fixo */
 }
 
 /* Intro Section */

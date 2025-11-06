@@ -88,7 +88,7 @@ img {
 
 /* Hero Section */
 .hero-operacao {
-    background-image: url('../img/hero-operacao.jpg');
+    background-image: url('../img/operacao2.svg');
     background-size: cover;
     background-position: center;
     padding: 140px 0 80px;
@@ -203,7 +203,7 @@ img {
     width: 33.33%;
     border-radius: 10px;
     object-fit: cover;
-    height: 200px;
+    height: 350px;
 }
 
 .foco-texto {
